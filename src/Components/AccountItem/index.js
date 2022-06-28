@@ -1,28 +1,25 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import Styles from './AccountItem.module.scss';
+import Image from '../images';
 
 const cx = classNames.bind(Styles);
 
-function AccountItem() {
+function AccountItem({ data }) {
     return (
-        <div className={cx('wrapper')}>
-            <img
-                className={cx('avatar')}
-                src="https://s3.cloud.cmctelecom.vn/tinhte1/2015/02/2821076_Hd-Cute-Girls-Wallpapers.jpg"
-                alt="Hoa"
-            />
+        <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
+            <Image className={cx('avatar')} src={data.avatar} alt={data.nickname} />
             <div className={cx('info')}>
                 <h4 className={cx('name')}>
-                    <span>Nguyễn Văn A</span>
+                    <span>{data.full_name}</span>
                     <FontAwesomeIcon className={cx('check')} icon={faCircleCheck} />
                 </h4>
-                <span className={cx('username')}>NguyenVanA</span>
+                <span className={cx('username')}>{data.nickname}</span>
             </div>
-        </div>
+        </Link>
     );
 }
 
 export default AccountItem;
- 
