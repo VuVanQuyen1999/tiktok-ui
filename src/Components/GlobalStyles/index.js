@@ -1,7 +1,1 @@
-import './GlobalStyles.scss';
-
-function GlobalSyles({ children }) {
-    return children;
-}
-
-export default GlobalSyles;
+export { default } from './GlobalStyles';
